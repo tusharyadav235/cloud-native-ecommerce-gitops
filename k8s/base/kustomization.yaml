@@ -1,0 +1,17 @@
+resources:
+  - product-deployment.yaml
+  - product-service.yaml
+  - cart-deployment.yaml
+  - cart-service.yaml
+  - order-deployment.yaml
+  - order-service.yaml
+  - frontend-deployment.yaml
+  - frontend-service.yaml
+  - ingress.yaml
+  - product-hpa.yaml
+  - cart-hpa.yaml
+  - order-hpa.yaml
+  - frontend-hpa.yaml
+  - db-configmap.yaml
+  - secret-store.yaml
+  - external-secret.yaml

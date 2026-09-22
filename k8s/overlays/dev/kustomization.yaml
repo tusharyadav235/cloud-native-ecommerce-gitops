@@ -1,0 +1,10 @@
+resources:
+  - ../../base
+
+configMapGenerator:
+  - name: db-config
+    behavior: merge
+    literals:
+      - DB_HOST=rds-dev.eu-west-1.rds.amazonaws.com
+
+namePrefix: dev-

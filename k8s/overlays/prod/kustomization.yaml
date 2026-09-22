@@ -1,0 +1,16 @@
+resources:
+  - ../../base
+
+configMapGenerator:
+  - name: db-config
+    behavior: merge
+    literals:
+      - DB_HOST=rds-prod.eu-west-1.rds.amazonaws.com
+
+secretGenerator:
+  - name: db-credentials
+    literals:
+      - SPRING_DATASOURCE_USERNAME=produser
+      - SPRING_DATASOURCE_PASSWORD=prodpassword
+
+namePrefix: prod-
