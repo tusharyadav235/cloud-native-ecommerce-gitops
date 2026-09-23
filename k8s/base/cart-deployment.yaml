@@ -34,7 +34,7 @@ spec:
                     app: cart-service
       containers:
         - name: cart-service
-          image: myregistry/cart-service:latest
+          image: tusharyadaav/cart-service:v1 
           imagePullPolicy: IfNotPresent
           ports:
             - name: http

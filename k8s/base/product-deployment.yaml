@@ -34,7 +34,7 @@ spec:
                     app: product-service
       containers:
         - name: product-service
-          image: myregistry/product-service:latest
+          image: tusharyadaav/product-service:v1
           imagePullPolicy: IfNotPresent
           ports:
             - name: http

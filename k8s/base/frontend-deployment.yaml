@@ -34,7 +34,7 @@ spec:
                     app: frontend
       containers:
         - name: frontend
-          image: myregistry/frontend:latest
+          image: tusharyadaav/frontend:v1                                                
           imagePullPolicy: IfNotPresent
           ports:
             - name: http
