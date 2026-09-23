@@ -4,5 +4,5 @@ metadata:
   name: db-config
 data:
   # Add your non-sensitive configuration variables here
-  DB_USER: "admin"
+  SPRING_DATASOURCE_USERNAME: "admin"
   # SPRING_PROFILES_ACTIVE: "prod"
