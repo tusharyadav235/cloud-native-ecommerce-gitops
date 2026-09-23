@@ -8,3 +8,16 @@ configMapGenerator:
       - DB_HOST=database-2.cwhq2k4wofrd.us-east-1.rds.amazonaws.com
 
 namePrefix: dev-
+
+patches:
+  - target:
+      kind: ExternalSecret
+      name: db-credentials-external
+    patch: |-
+      apiVersion: external-secrets.io/v1
+      kind: ExternalSecret
+      metadata:
+        name: db-credentials-external
+      spec:
+        secretStoreRef:
+          name: dev-aws-secret-store  
