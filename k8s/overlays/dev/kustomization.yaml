@@ -5,6 +5,6 @@ configMapGenerator:
   - name: db-config
     behavior: merge
     literals:
-      - DB_HOST=rds-dev.eu-west-1.rds.amazonaws.com
+      - DB_HOST=database-2.cwhq2k4wofrd.us-east-1.rds.amazonaws.com
 
 namePrefix: dev-

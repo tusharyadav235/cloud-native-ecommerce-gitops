@@ -1,0 +1,21 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: ecommerce-dev
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/tusharyadav235/cloud-native-ecommerce-gitops.git
+    targetRevision: main
+    path: k8s/overlays/dev   # <--- Pulls from the dev Kustomize overlay
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: development   # <--- Deploys into a dedicated dev namespace
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
+
