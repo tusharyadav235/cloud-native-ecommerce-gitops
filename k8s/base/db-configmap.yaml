@@ -5,4 +5,6 @@ metadata:
 data:
   # Add your non-sensitive configuration variables here
   SPRING_DATASOURCE_USERNAME: "admin"
+  SPRING_DATASOURCE_HIKARI_MAXIMUM_POOL_SIZE: "3"
+  
   # SPRING_PROFILES_ACTIVE: "prod"
