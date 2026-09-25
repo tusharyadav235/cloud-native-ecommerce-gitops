@@ -8,6 +8,7 @@ configMapGenerator:
   name: db-config
 
 namePrefix: dev-
+namespace: development
 
 patches:
 - patch: "apiVersion: external-secrets.io/v1\nkind: ExternalSecret\nmetadata:\n  name:

@@ -14,3 +14,4 @@ secretGenerator:
       - SPRING_DATASOURCE_PASSWORD=prodpassword
 
 namePrefix: prod-
+namespace: production
