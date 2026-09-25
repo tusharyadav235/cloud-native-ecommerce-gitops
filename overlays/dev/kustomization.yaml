@@ -1,23 +1,24 @@
 resources:
-  - ../../base
+- ../../base
 
 configMapGenerator:
-  - name: db-config
-    behavior: merge
-    literals:
-      - DB_HOST=database-2.cwhq2k4wofrd.us-east-1.rds.amazonaws.com
+- behavior: merge
+  literals:
+  - DB_HOST=database-2.cwhq2k4wofrd.us-east-1.rds.amazonaws.com
+  name: db-config
 
 namePrefix: dev-
 
 patches:
-  - target:
-      kind: ExternalSecret
-      name: db-credentials-external
-    patch: |-
-      apiVersion: external-secrets.io/v1
-      kind: ExternalSecret
-      metadata:
-        name: db-credentials-external
-      spec:
-        secretStoreRef:
-          name: dev-aws-secret-store  
+- patch: "apiVersion: external-secrets.io/v1\nkind: ExternalSecret\nmetadata:\n  name:
+    db-credentials-external\nspec:\n  secretStoreRef:\n    name: dev-aws-secret-store
+    \ "
+  target:
+    kind: ExternalSecret
+    name: db-credentials-external
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+images:
+- name: order-service
+  newName: 369343500508.dkr.ecr.us-east-1.amazonaws.com/order-service
+  newTag: 2a693d0
