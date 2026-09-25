@@ -1,17 +1,23 @@
 resources:
-  - ../../base
+- ../../base
 
 configMapGenerator:
-  - name: db-config
-    behavior: merge
-    literals:
-      - DB_HOST=rds-prod.eu-west-1.rds.amazonaws.com
+- behavior: merge
+  literals:
+  - DB_HOST=rds-prod.eu-west-1.rds.amazonaws.com
+  name: db-config
 
 secretGenerator:
-  - name: db-credentials
-    literals:
-      - SPRING_DATASOURCE_USERNAME=produser
-      - SPRING_DATASOURCE_PASSWORD=prodpassword
+- literals:
+  - SPRING_DATASOURCE_USERNAME=produser
+  - SPRING_DATASOURCE_PASSWORD=prodpassword
+  name: db-credentials
 
 namePrefix: prod-
 namespace: production
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+images:
+- name: order-service
+  newName: 369343500508.dkr.ecr.us-east-1.amazonaws.com/order-service
+  newTag: 2a693d0
