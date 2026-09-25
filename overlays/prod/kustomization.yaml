@@ -7,11 +7,18 @@ configMapGenerator:
     literals:
       - DB_HOST=rds-prod.eu-west-1.rds.amazonaws.com
 
-secretGenerator:
-  - name: db-credentials
-    literals:
-      - SPRING_DATASOURCE_USERNAME=produser
-      - SPRING_DATASOURCE_PASSWORD=prodpassword
+patches:
+  - target:
+      kind: ExternalSecret
+      name: db-credentials-external
+    patch: |-
+      apiVersion: external-secrets.io/v1
+      kind: ExternalSecret
+      metadata:
+        name: db-credentials-external
+      spec:
+        secretStoreRef:
+          name: prod-aws-secret-store
 
 namePrefix: prod-
 namespace: production
